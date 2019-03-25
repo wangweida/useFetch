@@ -8,17 +8,19 @@ React hooks
 import React, {useState} from "react";
 import useFetch from "./useFetch";
 
+const initialQuery = "redux";
+
 const App = () => {
   const {data, doFetch} = useFetch(
     {
       url: "http://hn.algolia.com/api/v1/search",
       initialPayload: {
-        query: "redux"
+        query: initialQuery
       }
     },
     {hits: []}
   );
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(initialQuery);
 
   return (
     <>
